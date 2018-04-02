@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from '../service/share.service';
 
 @Component({
   selector: 'app-obs2',
@@ -8,12 +7,9 @@ import { ShareService } from '../service/share.service';
 })
 export class Obs2Component implements OnInit {
   TextObs: string = "";
-  constructor(public shareService: ShareService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.shareService.textShared.subscribe(value => {
-      this.TextObs = value;
-    }
-    );
+
   }
 }

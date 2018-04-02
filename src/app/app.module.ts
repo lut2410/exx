@@ -3,15 +3,11 @@ import { NgModule  } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroService } from './service/hero.service';
 import { HttpClientModule } from '@angular/common/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-menory-data.service';
 import { Obs1Component } from './obs1/obs1.component';
 import { Obs2Component } from './obs2/obs2.component';
-import { ShareService } from './service/share.service';
 import {FormsModule} from '@angular/forms'
+import { Child1Module } from './obs1/child1.component';
 
 const routes: Routes = [
 {path: '',
@@ -19,13 +15,11 @@ const routes: Routes = [
  pathMatch : 'full'
 },
 {path: 'dashboard', component : DashboardComponent},
-{path: 'heroes', component: HeroesComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroesComponent,
     Obs1Component,
     Obs2Component
   ],
@@ -33,12 +27,10 @@ const routes: Routes = [
   RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
-    FormsModule
+    FormsModule,
+    Child1Module
   ],
-  providers: [HeroService,
-  ShareService
-],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
